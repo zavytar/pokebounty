@@ -868,7 +868,7 @@ static void PlayerAvatarTransition_Surfing(struct ObjectEvent *objEvent)
     gFieldEffectArguments[2] = gPlayerAvatar.objectEventId;
     spriteId = FieldEffectStart(FLDEFF_SURF_BLOB);
     objEvent->fieldEffectSpriteId = spriteId;
-    sub_81555AC(spriteId, 1);
+    BindFieldEffectToSprite(spriteId, 1);
 }
 
 static void PlayerAvatarTransition_Underwater(struct ObjectEvent *objEvent)
@@ -876,7 +876,7 @@ static void PlayerAvatarTransition_Underwater(struct ObjectEvent *objEvent)
     ObjectEventSetGraphicsId(objEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_UNDERWATER));
     ObjectEventTurn(objEvent, objEvent->movementDirection);
     SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_UNDERWATER);
-    objEvent->fieldEffectSpriteId = sub_8155800(objEvent->spriteId);
+    objEvent->fieldEffectSpriteId = DoBobbingFieldEffect(objEvent->spriteId);
 }
 
 static void PlayerAvatarTransition_ReturnToField(struct ObjectEvent *objEvent)
@@ -1649,7 +1649,7 @@ static void Task_StopSurfingInit(u8 taskId)
         if (!ObjectEventClearHeldMovementIfFinished(playerObjEvent))
             return;
     }
-    sub_81555AC(playerObjEvent->fieldEffectSpriteId, 2);
+    BindFieldEffectToSprite(playerObjEvent->fieldEffectSpriteId, 2);
     ObjectEventSetHeldMovement(playerObjEvent, GetJumpSpecialMovementAction((u8)gTasks[taskId].data[0]));
     gTasks[taskId].func = Task_WaitStopSurfing;
 }
