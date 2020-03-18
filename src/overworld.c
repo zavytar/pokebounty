@@ -1589,10 +1589,7 @@ void CB2_LoadMap(void)
 
 static void CB2_LoadMap2(void)
 {
-    do_load_map_stuff_loop(&gMain.state);
-    
-    FollowMe_BindToSurbBlobOnReloadScreen();    // to do: find spot
-    
+    do_load_map_stuff_loop(&gMain.state);    
     SetFieldVBlankCallback();
     SetMainCallback1(CB1_Overworld);
     SetMainCallback2(CB2_Overworld);
@@ -1902,13 +1899,13 @@ static bool32 load_map_stuff(u8 *state, u32 a2)
     switch (*state)
     {
     case 0:       
-        FieldClearVBlankHBlankCallbacks();        
+        FieldClearVBlankHBlankCallbacks();          
         mli0_load_map(a2);
         (*state)++;
         break;
     case 1:
         sub_80867C8();
-        sub_80867D8();
+        sub_80867D8();        
         (*state)++;
         break;
     case 2:
@@ -1958,7 +1955,7 @@ static bool32 load_map_stuff(u8 *state, u32 a2)
             ShowMapNamePopup();
         (*state)++;
         break;
-    case 12:    
+    case 12:
         if (map_post_load_hook_exec())
             (*state)++;
         break;
@@ -1984,6 +1981,7 @@ static bool32 sub_8086638(u8 *state)
     case 1:
         sub_8086860();
         sub_81D64C0();
+        FollowMe_BindToSurbBlobOnReloadScreen();
         (*state)++;
         break;
     case 2:
@@ -2002,7 +2000,7 @@ static bool32 map_loading_iteration_2_link(u8 *state)
     switch (*state)
     {
     case 0:
-        FieldClearVBlankHBlankCallbacks();
+        FieldClearVBlankHBlankCallbacks();        
         sub_80867C8();
         sub_80867D8();        
         (*state)++;
