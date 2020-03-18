@@ -22,6 +22,7 @@
 #include "trainer_see.h"
 #include "trainer_hill.h"
 #include "util.h"
+#include "follow_me.h"
 #include "constants/event_object_movement.h"
 #include "constants/event_objects.h"
 #include "constants/field_effects.h"
@@ -1147,10 +1148,11 @@ u8 GetFirstInactiveObjectEventId(void)
 
 u8 GetObjectEventIdByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroupId)
 {
-    if (localId < OBJ_EVENT_ID_PLAYER)
-    {
+    if (localId == 0xFE)
+        return GetFollowerObjectId();
+    else if (localId < OBJ_EVENT_ID_PLAYER)
         return GetObjectEventIdByLocalIdAndMapInternal(localId, mapNum, mapGroupId);
-    }
+    
     return GetObjectEventIdByLocalId(localId);
 }
 
@@ -2326,7 +2328,10 @@ void SetObjectEventDirection(struct ObjectEvent *objectEvent, u8 direction)
 
 static const u8 *GetObjectEventScriptPointerByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup)
 {
-    return GetObjectEventTemplateByLocalIdAndMap(localId, mapNum, mapGroup)->script;
+    if (GetFollowerLocalId() == 0 || GetFollowerLocalId() != localId)
+        return GetObjectEventTemplateByLocalIdAndMap(localId, mapNum, mapGroup)->script;
+    else
+        return GetFollowerScriptPointer();    
 }
 
 const u8 *GetObjectEventScriptPointerByObjectEventId(u8 objectEventId)
@@ -4784,8 +4789,9 @@ static bool8 DoesObjectCollideWithObjectAt(struct ObjectEvent *objectEvent, s16 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {
         curObject = &gObjectEvents[i];
-        if (curObject->active && curObject != objectEvent)
-        {
+        if (curObject->active && curObject != objectEvent && !FollowMe_IsCollisionExempt(curObject, objectEvent))
+        {            
+            // check for collision if curObject is active, not the object in question, and not exempt from collisions
             if ((curObject->currentCoords.x == x && curObject->currentCoords.y == y) || (curObject->previousCoords.x == x && curObject->previousCoords.y == y))
             {
                 if (AreZCoordsCompatible(objectEvent->currentElevation, curObject->currentElevation))
@@ -4939,6 +4945,9 @@ bool8 ObjectEventSetHeldMovement(struct ObjectEvent *objectEvent, u8 movementAct
     objectEvent->heldMovementActive = TRUE;
     objectEvent->heldMovementFinished = FALSE;
     gSprites[objectEvent->spriteId].data[2] = 0;
+    
+    FollowMe(objectEvent, movementActionId, FALSE);
+    
     return FALSE;
 }
 
