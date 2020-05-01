@@ -1729,3 +1729,63 @@ gTilesetPalettes_UnionRoom:: @ 8395678
 	.align 2
 gTilesetTiles_UnionRoom:: @ 8395878
 	.incbin "data/tilesets/secondary/union_room/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_Gatehouse::
+	.incbin "data/tilesets/secondary/gatehouse/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/gatehouse/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/gatehouse/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/gatehouse/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/gatehouse/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/gatehouse/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/gatehouse/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/gatehouse/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/gatehouse/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/gatehouse/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/gatehouse/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/gatehouse/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/gatehouse/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_Gatehouse::
+	.incbin "data/tilesets/secondary/gatehouse/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_Seagallop_Port::
+	.incbin "data/tilesets/secondary/seagallop_port/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/seagallop_port/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/seagallop_port/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/seagallop_port/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/seagallop_port/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/seagallop_port/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/seagallop_port/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/seagallop_port/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/seagallop_port/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/seagallop_port/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/seagallop_port/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/seagallop_port/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/seagallop_port/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_Seagallop_Port::
+	.incbin "data/tilesets/secondary/seagallop_port/tiles.4bpp.lz"
+
+	.align 2
+gTilesetPalettes_MikanGym::
+	.incbin "data/tilesets/secondary/mikangym/palettes/00.gbapal"
+	.incbin "data/tilesets/secondary/mikangym/palettes/01.gbapal"
+	.incbin "data/tilesets/secondary/mikangym/palettes/02.gbapal"
+	.incbin "data/tilesets/secondary/mikangym/palettes/03.gbapal"
+	.incbin "data/tilesets/secondary/mikangym/palettes/04.gbapal"
+	.incbin "data/tilesets/secondary/mikangym/palettes/05.gbapal"
+	.incbin "data/tilesets/secondary/mikangym/palettes/06.gbapal"
+	.incbin "data/tilesets/secondary/mikangym/palettes/07.gbapal"
+	.incbin "data/tilesets/secondary/mikangym/palettes/08.gbapal"
+	.incbin "data/tilesets/secondary/mikangym/palettes/09.gbapal"
+	.incbin "data/tilesets/secondary/mikangym/palettes/10.gbapal"
+	.incbin "data/tilesets/secondary/mikangym/palettes/11.gbapal"
+	.incbin "data/tilesets/secondary/mikangym/palettes/12.gbapal"
+
+	.align 2
+gTilesetTiles_MikanGym::
+	.incbin "data/tilesets/secondary/mikangym/tiles.4bpp.lz"
