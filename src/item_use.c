@@ -224,7 +224,7 @@ static void ItemUseOnFieldCB_Bike(u8 taskId)
     if (!ItemId_GetSecondaryId(gSpecialVar_ItemId))
         GetOnOffBike(PLAYER_AVATAR_FLAG_MACH_BIKE);
     else
-        GetOnOffBike(PLAYER_AVATAR_FLAG_ACRO_BIKE;
+        GetOnOffBike(PLAYER_AVATAR_FLAG_ACRO_BIKE);
     
     FollowMe_HandleBike();
     ScriptUnfreezeObjectEvents();
@@ -916,14 +916,10 @@ static void ItemUseOnFieldCB_EscapeRope(u8 taskId)
 
 bool8 CanUseDigOrEscapeRopeOnCurMap(void)
 {
-<<<<<<< HEAD
     if (!CheckFollowerFlag(FOLLOWER_FLAG_CAN_LEAVE_ROUTE))
         return FALSE;
     
-    if (gMapHeader.flags & MAP_ALLOW_ESCAPE_ROPE)
-=======
     if (gMapHeader.flags & MAP_ALLOW_ESCAPING)
->>>>>>> b398ef344f4a8b1c147c76cfa0655c2a932fa15b
         return TRUE;
     else
         return FALSE;
