@@ -55,7 +55,15 @@ DewfordTown_EventScript_SailBackToPetalburg:: @ 81E95A2
 	end
 
 DewfordTown_EventScript_Woman:: @ 81E95B1
-	msgbox DewfordTown_Text_TinyIslandCommunity, MSGBOX_NPC
+	lock
+	faceplayer
+	msgbox DewfordTown_Text_TinyIslandCommunity, MSGBOX_DEFAULT
+	givemon SPECIES_MEOWTH, 5, ITEM_NONE//, 0x0, 0x0, 0
+	playfanfare MUS_FANFA4
+	msgbox Text_GotMeowth, MSGBOX_DEFAULT
+	waitfanfare
+	setflag FLAG_SYS_POKEMON_GET
+	release
 	end
 
 DewfordTown_EventScript_TownSign:: @ 81E95BA
@@ -798,3 +806,7 @@ DewfordTown_Text_YeahDefinitionOfInRightNow: @ 81EA491
 	.string "Yeah, absolutely right!\p"
 	.string "“{STR_VAR_1}” is the\n"
 	.string "definition of “in” right now.$"
+	
+Text_GotMeowth:
+	.string "{PLAYER} got Meowth!$"
+	
