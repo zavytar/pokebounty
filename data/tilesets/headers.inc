@@ -29,7 +29,7 @@ gTileset_Rustboro:: @ 83DF734
 	.4byte gTilesetPalettes_Rustboro
 	.4byte gMetatiles_Rustboro
 	.4byte gMetatileAttributes_Rustboro
-	.4byte NULL
+	.4byte InitTilesetAnim_Rustboro
 
 	.align 2
 gTileset_Dewford:: @ 83DF74C
@@ -830,36 +830,3 @@ gTileset_UnionRoom:: @ 83DFDFC
 	.4byte gMetatiles_UnionRoom
 	.4byte gMetatileAttributes_UnionRoom
 	.4byte NULL @ animation callback
-
-	.align 2
-gTileset_Gatehouse::
-	.byte TRUE @ is compressed
-	.byte TRUE @ is secondary
-	.2byte 0
-	.4byte gTilesetTiles_Gatehouse
-	.4byte gTilesetPalettes_Gatehouse
-	.4byte gMetatiles_Gatehouse
-	.4byte gMetatileAttributes_Gatehouse
-	.4byte NULL
-
-	.align 2
-gTileset_Seagallop_Port::
-	.byte TRUE @ is compressed
-	.byte TRUE @ is secondary
-	.2byte 0
-	.4byte gTilesetTiles_Seagallop_Port
-	.4byte gTilesetPalettes_Seagallop_Port
-	.4byte gMetatiles_Seagallop_Port
-	.4byte gMetatileAttributes_Seagallop_Port
-	.4byte NULL
-
-	.align 2
-gTileset_MikanGym::
-	.byte TRUE @ is compressed
-	.byte TRUE @ is secondary
-	.2byte 0
-	.4byte gTilesetTiles_MikanGym
-	.4byte gTilesetPalettes_MikanGym
-	.4byte gMetatiles_MikanGym
-	.4byte gMetatileAttributes_MikanGym
-	.4byte NULL

@@ -557,25 +557,3 @@ gMetatiles_UnionRoom:: @ 83DF392
 	.align 1
 gMetatileAttributes_UnionRoom:: @ 83DF6A2
 	.incbin "data/tilesets/secondary/union_room/metatile_attributes.bin"
-	.align 1
-	.align 1
-gMetatiles_Gatehouse::
-	.incbin "data/tilesets/secondary/gatehouse/metatiles.bin"
-
-	.align 1
-gMetatileAttributes_Gatehouse::
-	.incbin "data/tilesets/secondary/gatehouse/metatile_attributes.bin"
-	.align 1
-gMetatiles_Seagallop_Port::
-	.incbin "data/tilesets/secondary/seagallop_port/metatiles.bin"
-
-	.align 1
-gMetatileAttributes_Seagallop_Port::
-	.incbin "data/tilesets/secondary/seagallop_port/metatile_attributes.bin"
-	.align 1
-gMetatiles_MikanGym::
-	.incbin "data/tilesets/secondary/mikangym/metatiles.bin"
-
-	.align 1
-gMetatileAttributes_MikanGym::
-	.incbin "data/tilesets/secondary/mikangym/metatile_attributes.bin"
