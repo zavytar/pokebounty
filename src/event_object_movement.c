@@ -9338,83 +9338,86 @@ bool8 PlayerIsUnderWaterfall(struct ObjectEvent *objectEvent)
     return FALSE;
 }
 
+//<<<<<<< HEAD
 // running slow
-static void StartSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction)
-{
-    sub_8093AF0(objectEvent, sprite, direction);
-    npc_apply_anim_looping(objectEvent, sprite, GetRunningDirectionAnimNum(objectEvent->facingDirection));
-}
+//static void StartSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction)
+//{
+//    sub_8093AF0(objectEvent, sprite, direction);
+//    npc_apply_anim_looping(objectEvent, sprite, GetRunningDirectionAnimNum(objectEvent->facingDirection));
+//}
 
-#define tDirection data[3]
-#define tDelay     data[4]
-#define tStepNo    data[5]
-static bool8 obj_npc_ministep_slow(struct Sprite *sprite)
-{
-    if ((++sprite->tDelay) & 1)
-    {
-        Step1(sprite, sprite->tDirection);
-        sprite->tStepNo++;
-    }
-    else
-    {
-        Step2(sprite, sprite->tDirection);
-        sprite->tStepNo += 2;
-    }
+//#define tDirection data[3]
+//#define tDelay     data[4]
+//#define tStepNo    data[5]
+//static bool8 obj_npc_ministep_slow(struct Sprite *sprite)
+//{
+//    if ((++sprite->tDelay) & 1)
+//    {
+ //       Step1(sprite, sprite->tDirection);
+//        sprite->tStepNo++;
+//    }
+//    else
+//    {
+//        Step2(sprite, sprite->tDirection);
+//        sprite->tStepNo += 2;
+//    }
 
-    if (sprite->tStepNo > 15)
-        return TRUE;
-    else
-        return FALSE;
-}
-static bool8 npc_obj_ministep_stop_on_arrival_slow(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    if (obj_npc_ministep_slow(sprite))
-    {
-        ShiftStillObjectEventCoords(objectEvent);
-        objectEvent->triggerGroundEffectsOnStop = TRUE;
-        sprite->animPaused = TRUE;
-        return TRUE;
-    }
-    return FALSE;
-}
+//    if (sprite->tStepNo > 15)
+//        return TRUE;
+//    else
+//        return FALSE;
+//}
+//static bool8 npc_obj_ministep_stop_on_arrival_slow(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+//{
+//    if (obj_npc_ministep_slow(sprite))
+//    {
+//        ShiftStillObjectEventCoords(objectEvent);
+//        objectEvent->triggerGroundEffectsOnStop = TRUE;
+//        sprite->animPaused = TRUE;
+//        return TRUE;
+//    }
+//    return FALSE;
+//}
 
 
-bool8 MovementActionFunc_RunSlowDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    StartSlowRunningAnim(objectEvent, sprite, DIR_SOUTH);
-    return MovementActionFunc_RunSlow_Step1(objectEvent, sprite);
-}
+//bool8 MovementActionFunc_RunSlowDown_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+//{
+ //   StartSlowRunningAnim(objectEvent, sprite, DIR_SOUTH);
+   // return MovementActionFunc_RunSlow_Step1(objectEvent, sprite);
+//}
 
-bool8 MovementActionFunc_RunSlowUp_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    StartSlowRunningAnim(objectEvent, sprite, DIR_NORTH);
-    return MovementActionFunc_RunSlow_Step1(objectEvent, sprite);
-}
+//bool8 MovementActionFunc_RunSlowUp_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+//{
+//    StartSlowRunningAnim(objectEvent, sprite, DIR_NORTH);
+//    return MovementActionFunc_RunSlow_Step1(objectEvent, sprite);
+//}
 
-bool8 MovementActionFunc_RunSlowLeft_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    if (objectEvent->directionOverwrite)
-        StartSlowRunningAnim(objectEvent, sprite, objectEvent->directionOverwrite);
-    else
-        StartSlowRunningAnim(objectEvent, sprite, DIR_WEST);
-    return MovementActionFunc_RunSlow_Step1(objectEvent, sprite);
-}
+//bool8 MovementActionFunc_RunSlowLeft_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+//{
+//    if (objectEvent->directionOverwrite)
+//        StartSlowRunningAnim(objectEvent, sprite, objectEvent->directionOverwrite);
+//    else
+//        StartSlowRunningAnim(objectEvent, sprite, DIR_WEST);
+//    return MovementActionFunc_RunSlow_Step1(objectEvent, sprite);
+//}
 
-bool8 MovementActionFunc_RunSlowRight_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    if (objectEvent->directionOverwrite)
-        StartSlowRunningAnim(objectEvent, sprite, objectEvent->directionOverwrite);
-    else
-        StartSlowRunningAnim(objectEvent, sprite, DIR_EAST);
-    return MovementActionFunc_RunSlow_Step1(objectEvent, sprite);
-}
+//bool8 MovementActionFunc_RunSlowRight_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+//{
+//    if (objectEvent->directionOverwrite)
+//        StartSlowRunningAnim(objectEvent, sprite, objectEvent->directionOverwrite);
+//    else
+//        StartSlowRunningAnim(objectEvent, sprite, DIR_EAST);
+//    return MovementActionFunc_RunSlow_Step1(objectEvent, sprite);
+//}
 
-bool8 MovementActionFunc_RunSlow_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
-{
-    if (npc_obj_ministep_stop_on_arrival_slow(objectEvent, sprite))
-    {
-        sprite->data[2] = 2;
-        return TRUE;
-    }
-    return FALSE;
-}
+//bool8 MovementActionFunc_RunSlow_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+//{
+//    if (npc_obj_ministep_stop_on_arrival_slow(objectEvent, sprite))
+//    {
+//        sprite->data[2] = 2;
+//        return TRUE;
+//    }
+//    return FALSE;
+//}
+//=======
+//>>>>>>> 1d28b4f086697da5bae5dcbcebd06a42cd567a5b
